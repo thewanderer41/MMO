@@ -5,14 +5,42 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix mmo: <http://blee.com/v5/MMO#> .
 
+<http://blee.com/v5/MMO#> rdf:type owl:Ontology .
+
 ###########################################
 # Object properties
 ###########################################
 
+mmo:hasType rdf:type owl:ObjectProperty ;
+	rdfs:domain mmo:Monster ;
+	rdfs:range mmo:MonsterType .
+	
+mmo:subtypeOf rdf:type owl:ObjectProperty ;
+	rdfs:domain mmo:MonsterType;
+	rdfs:range mmo:MonsterType .
 
 ###########################################
 # Classes
 ###########################################
 
-mmo:Creature rdf:type owl:Class
+mmo:Monster rdf:type owl:Class .
 
+mmo:MonsterType rdf:type owl:Class .
+
+_:x1 rdf:type owl:Class ;
+	rdfs:subClassOf mmo:MonsterType;
+	
+mmo:Aberration owl:equivalentClass _:x1 .
+mmo:Beast owl:equivalentClass _:x1 .
+mmo:Celestial owl:equivalentClass _:x1 .
+mmo:Construct owl:equivalentClass _:x1 .
+mmo:Dragon owl:equivalentClass _:x1 .
+mmo:Elemental owl:equivalentClass _:x1 .
+mmo:Fey owl:equivalentClass _:x1 .
+mmo:Fiend owl:equivalentClass _:x1 .
+mmo:Giant owl:equivalentClass _:x1 .
+mmo:Humanoid owl:equivalentClass _:x1 .
+mmo:Monstrosity owl:equivalentClass _:x1 .
+mmo:Ooze owl:equivalentClass _:x1 .
+mmo:Plant owl:equivalentClass _:x1 .
+mmo:Undead owl:equivalentClass _:x1 .
