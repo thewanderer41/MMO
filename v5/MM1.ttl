@@ -1,0 +1,75 @@
+@prefix mm: <http://blee.com/v5/MM1/> .
+@prefix mmo: <http://blee.com/v5/MMO#> .
+
+mm:Aberration a mmo:MonsterType .
+mm:Beast a mmo:MonsterType .
+mm:Celestial a mmo:MonsterType .
+mm:Construct a mmo:MonsterType .
+mm:Dragon a mmo:MonsterType .
+mm:Elemental a mmo:MonsterType .
+mm:Fey a mmo:MonsterType .
+mm:Fiend a mmo:MonsterType .
+mm:Giant a mmo:MonsterType .
+mm:Humanoid a mmo:MonsterType .
+mm:Monstrosity a mmo:MonsterType .
+mm:Ooze a mmo:MonsterType .
+mm:Plant a mmo:MonsterType .
+mm:Undead a mmo:MonsterType .
+mm:Legendary a mmo:MonsterType .
+
+mm:AarakocraType a mmo:MonsterType ;
+	mmo:subtypeOf mm:Humanoid .
+mm:Aarakocra a mmo:Monster ;
+	mmo:hasType mm:AarakocraType ;
+	mmo:hasSize mmo:Medium ;
+	mmo:hasAlignment mmo:NeutralGood ;
+	mmo:hasChallengeRating "0.25"^^xsd:float .
+	
+mm:Aboleth a mmo:Monster ;
+	mmo:hasType mm:Aberration, mm:Legendary ;
+	mmo:hasSize mm:Large ;
+	mmo:hasAlignment mmo:LawfulEvil ;
+	mmo:hasChallengeRating "10"^^xsd:float .
+	
+mm:Deva a mmo:Monster ;
+	mmo:hasType mm:Celestial ;
+	mmo:hasSize mmo:Medium ;
+	mmo:hasAlignment mmo:LawfulGood ;
+	mmo:hasChallengeRating "10"^^xsd:float .
+	
+mm:Planetar a mmo:Monster ;
+	mmo:hasType mm:Celestial ;
+	mmo:hasSize mmo:Large ;
+	mmo:hasAlignment mmo:LawfulGood ;
+	mmo:hasChallengeRating "16"^^xsd:float .
+	
+mm:Solar a mmo:Monster ;
+	mmo:hasType mm:Celestial, mm:Legendary ;
+	mmo:hasSize mmo:Large ;
+	mmo:hasAlignment mmo:LawfulGood ;
+	mmo:hasChallengeRating "21"^^xsd:float .
+	
+mm:AnimatedArmor a mmo:Monster ;
+	mmo:hasType mm:Construct ;
+	mmo:hasSize mmo:Medium ;
+	mmo:hasAlignment mmo:Unaligned ;
+	mmo:hasChallengeRating "1"^^xsd:float .
+	
+mm:FlyingSword a mmo:Monster ;
+	mmo:hasType mm:Construct ;
+	mmo:hasSize mmo:Small ;
+	mmo:hasAlignment mmo:Unaligned ;
+	mmo:hasChallengeRating "0.25"^^xsd:float .
+	
+mm:RugOfSomething a mmo:Monster ;
+	mmo:hasType mm:Construct ;
+	mmo:hasSize mmo:Large ;
+	mmo:hasAlignment mmo:Unaligned ;
+	mmo:hasChallengeRating "2"^^xsd:float .
+	
+mm:Ankheg a mmo:Monster ;
+	mmo:hasType mm:Monstrosity ;
+	mmo:hasSize mmo:Large ;
+	mmo:hasAlignment mmo:Unaligned ;
+	mmo:hasChallengeRating "2"^^xsd:float .
+	

@@ -17,7 +17,24 @@ mmo:hasType rdf:type owl:ObjectProperty ;
 	
 mmo:subtypeOf rdf:type owl:ObjectProperty ;
 	rdfs:domain mmo:MonsterType;
-	rdfs:range mmo:MonsterType .
+	rdfs:range mmo:MonsterType ;
+	owl:equivalentProperty rdfs:subClassOf .
+	
+mmo:hasSize rdf:type owl:ObjectProperty ;
+	rdfs:domain mmo:Monster ;
+	rdfs:range mmo:MonsterSize .
+	
+mmo:hasAlignment rdf:type owl:ObjectProperty ;
+	rdfs:domain mmo:Monster ;
+	rdfs:range mmo:Alignment
+
+###########################################
+# Data properties
+###########################################
+
+mmo:hasChallengeRating rdf:type owl:DatatypeProperty ;
+	rdfs:domain mmo:Monster ;
+	rdfs:range xsd:float .
 
 ###########################################
 # Classes
@@ -27,20 +44,35 @@ mmo:Monster rdf:type owl:Class .
 
 mmo:MonsterType rdf:type owl:Class .
 
-_:x1 rdf:type owl:Class ;
-	rdfs:subClassOf mmo:MonsterType;
-	
-mmo:Aberration owl:equivalentClass _:x1 .
-mmo:Beast owl:equivalentClass _:x1 .
-mmo:Celestial owl:equivalentClass _:x1 .
-mmo:Construct owl:equivalentClass _:x1 .
-mmo:Dragon owl:equivalentClass _:x1 .
-mmo:Elemental owl:equivalentClass _:x1 .
-mmo:Fey owl:equivalentClass _:x1 .
-mmo:Fiend owl:equivalentClass _:x1 .
-mmo:Giant owl:equivalentClass _:x1 .
-mmo:Humanoid owl:equivalentClass _:x1 .
-mmo:Monstrosity owl:equivalentClass _:x1 .
-mmo:Ooze owl:equivalentClass _:x1 .
-mmo:Plant owl:equivalentClass _:x1 .
-mmo:Undead owl:equivalentClass _:x1 .
+mmo:MonsterSize rdf:type owl:Class .
+
+mmo:Alignment rdf:type owl:Class .
+
+mmo:LawfulGood rdf:type owl:Class ;
+	rdfs:subClassOf mmo:Alignment .
+mmo:NeutralGood rdf:type owl:Class ;
+	rdfs:subClassOf mmo:Alignment .
+mmo:ChaoticGood rdf:type owl:Class ;
+	rdfs:subClassOf mmo:Alignment .
+mmo:LawfulNeutral rdf:type owl:Class ;
+	rdfs:subClassOf mmo:Alignment .
+mmo:NeutralNeutral rdf:type owl:Class ;
+	rdfs:subClassOf mmo:Alignment .
+mmo:ChaoticNeutral rdf:type owl:Class ;
+	rdfs:subClassOf mmo:Alignment .
+mmo:LawfulEvil rdf:type owl:Class ;
+	rdfs:subClassOf mmo:Alignment .
+mmo:NeutralEvil rdf:type owl:Class ;
+	rdfs:subClassOf mmo:Alignment .
+mmo:ChaoticEvil rdf:type owl:Class ;
+	rdfs:subClassOf mmo:Alignment .
+mmo:Unaligned rdf:type owl:Class ;
+	rdfs:subClassOf mmo:Alignment .
+mmo:TrueNeutral owl:sameAs mmo:NeutralNeutral .
+
+mmo:Large rdf:type owl:Class ;
+	rdfs:subClassOf mmo:MonsterSize .
+mmo:Medium rdf:type owl:Class ;
+	rdfs:subClassOf mmo:MonsterSize .
+mmo:Small rdf:type owl:Class ;
+	rdfs:subClassOf mmo:MonsterSize .
