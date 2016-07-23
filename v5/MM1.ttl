@@ -19,57 +19,116 @@ mm:Legendary a mmo:MonsterType .
 
 mm:AarakocraType a mmo:MonsterType ;
 	mmo:subtypeOf mm:Humanoid .
-mm:Aarakocra a mmo:Monster ;
+	mm:Aarakocra a mmo:Monster ;
 	mmo:hasType mm:AarakocraType ;
-	mmo:hasSize mmo:Medium ;
+	mmo:hasSize mmo:MediumMonsterSize ;
 	mmo:hasAlignment mmo:NeutralGood ;
 	mmo:hasChallengeRating "0.25"^^xsd:float .
 	
 mm:Aboleth a mmo:Monster ;
 	mmo:hasType mm:Aberration, mm:Legendary ;
-	mmo:hasSize mm:Large ;
+	mmo:hasSize mm:LargeMonsterSize ;
 	mmo:hasAlignment mmo:LawfulEvil ;
 	mmo:hasChallengeRating "10"^^xsd:float .
 	
 mm:Deva a mmo:Monster ;
 	mmo:hasType mm:Celestial ;
-	mmo:hasSize mmo:Medium ;
+	mmo:hasSize mmo:MediumMonsterSize ;
 	mmo:hasAlignment mmo:LawfulGood ;
 	mmo:hasChallengeRating "10"^^xsd:float .
 	
 mm:Planetar a mmo:Monster ;
 	mmo:hasType mm:Celestial ;
-	mmo:hasSize mmo:Large ;
+	mmo:hasSize mmo:LargeMonsterSize ;
 	mmo:hasAlignment mmo:LawfulGood ;
 	mmo:hasChallengeRating "16"^^xsd:float .
 	
 mm:Solar a mmo:Monster ;
 	mmo:hasType mm:Celestial, mm:Legendary ;
-	mmo:hasSize mmo:Large ;
+	mmo:hasSize mmo:LargeMonsterSize ;
 	mmo:hasAlignment mmo:LawfulGood ;
 	mmo:hasChallengeRating "21"^^xsd:float .
 	
 mm:AnimatedArmor a mmo:Monster ;
 	mmo:hasType mm:Construct ;
-	mmo:hasSize mmo:Medium ;
+	mmo:hasSize mmo:MediumMonsterSize ;
 	mmo:hasAlignment mmo:Unaligned ;
 	mmo:hasChallengeRating "1"^^xsd:float .
 	
 mm:FlyingSword a mmo:Monster ;
 	mmo:hasType mm:Construct ;
-	mmo:hasSize mmo:Small ;
+	mmo:hasSize mmo:SmallMonsterSize ;
 	mmo:hasAlignment mmo:Unaligned ;
 	mmo:hasChallengeRating "0.25"^^xsd:float .
 	
 mm:RugOfSomething a mmo:Monster ;
 	mmo:hasType mm:Construct ;
-	mmo:hasSize mmo:Large ;
+	mmo:hasSize mmo:LargeMonsterSize ;
 	mmo:hasAlignment mmo:Unaligned ;
 	mmo:hasChallengeRating "2"^^xsd:float .
 	
 mm:Ankheg a mmo:Monster ;
 	mmo:hasType mm:Monstrosity ;
-	mmo:hasSize mmo:Large ;
+	mmo:hasSize mmo:LargeMonsterSize ;
 	mmo:hasAlignment mmo:Unaligned ;
 	mmo:hasChallengeRating "2"^^xsd:float .
 	
+mm:Azer a mmo:Monster ;
+	mmo:hasType mm:Elemental ;
+	mmo:hasSize mmo:MediumMonsterSize ;
+	mmo:hasAlignment mmo:LawfulNeutral ;
+	mmo:hasChallengeRating "2"^^xsd:float .
+	
+mm:Banshee a mmo:Monster ;
+	mmo:hasType mm:Undead ;
+	mmo:hasSize mmo:MediumMonsterSize ;
+	mmo:hasAlignment mmo:ChaoticEvil ;
+	mmo:hasChallengeRating "4"^^xsd:float .
+	
+mm:Basilisk a mmo:Monster ;
+	mmo:hasType mm:Monstrosity ;
+	mmo:hasSize mmo:MediumMonsterSize ;
+	mmo:hasAlignment mmo:Unaligned ;
+	mmo:hasChallengeRating "3"^^xsd:float .
+	
+mm:Behir a mmo:Monster ;
+	mmo:hasType mm:Monstrosity ;
+	mmo:hasSize mmo:HugeMonsterSize ;
+	mmo:hasAlignment mmo:Unaligned ;
+	mmo:hasChallengeRating "11"^^xsd:float .
+	
+mm:Beholder a mmo:Monster ;
+	mmo:hasType mm:Aberration, mm:Legendary ;
+	mmo:hasSize mmo:LargeMonsterSize ;
+	mmo:hasAlignment mmo:LawfulEvil ;
+	mmo:hasChallengeRating "13"^^xsd:float .
+	
+mm:DeathTyrant a mmo:Monster ;
+	mmo:hasType mm:Undead, mm:Legendary ;
+	mmo:hasSize mmo:LargeMonsterSize ;
+	mmo:hasAlignment mmo:LawfulEvil ;
+	mmo:hasChallengeRating "14"^^xsd:float .
+	
+mm:Spectator a mmo:Monster ;
+	mmo:hasType mm:Aberration ;
+	mmo:hasSize mmo:MediumMonsterSize ;
+	mmo:hasAlignment mmo:LawfulNeutral ;
+	mmo:hasChallengeRating "3"^^xsd:float .
+	
+mm:TwigBlight a mmo:Monster ;
+	mmo:hasType mm:Plant ;
+	mmo:hasSize mmo:SmallMonsterSize ;
+	mmo:hasAlignment mmo:NeutralEvil ;
+	mmo:hasChallengeRating "0.125"^^xsd:float .
+	
+mm:NeedleBlight a mmo:Monster ;
+	mmo:hasType mm:Plant ;
+	mmo:hasSize mmo:MediumMonsterSize ;
+	mmo:hasAlignment mmo:NeutralEvil ;
+	mmo:hasChallengeRating "0.25"^^xsd:float .
+	
+mm:VineBlight a mmo:Monster ;
+	mmo:hasType mm:Plant ;
+	mmo:hasSize mmo:MediumMonsterSize ;
+	mmo:hasAlignment mmo:NeutralEvil ;
+	mmo:hasChallengeRating "0.5"^^xsd:float .

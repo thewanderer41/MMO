@@ -70,9 +70,9 @@ mmo:Unaligned rdf:type owl:Class ;
 	rdfs:subClassOf mmo:Alignment .
 mmo:TrueNeutral owl:sameAs mmo:NeutralNeutral .
 
-mmo:Large rdf:type owl:Class ;
+mmo:LargeMonsterSize rdf:type owl:Class ;
 	rdfs:subClassOf mmo:MonsterSize .
-mmo:Medium rdf:type owl:Class ;
+mmo:MediumMonsterSize rdf:type owl:Class ;
 	rdfs:subClassOf mmo:MonsterSize .
-mmo:Small rdf:type owl:Class ;
+mmo:SmallMonsterSize rdf:type owl:Class ;
 	rdfs:subClassOf mmo:MonsterSize .
