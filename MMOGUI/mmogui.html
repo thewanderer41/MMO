@@ -3,6 +3,7 @@
 <link rel="stylesheet" type="text/css" href="mmogui.css">
 </head>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular-sanitize.js"></script>
 <body>
 
 <div ng-app="monsterApp" ng-controller="monsterController">
@@ -48,48 +49,59 @@
 			   </select><br>
 	Challenge Rating <input type="number" ng-model="challenge"></p>
 
-	<input type="button" value="Save">
+	<input type="button" value="Add" ng-click="SendData()">
+	<p ng-init="save=''">{{save}}</p>
 	
-	<p class=hangingindent>mm:{{Name}} a mmo:Monster<br>
-		mmo:hasType mm:{{type}}{{LegendaryText()}}<br>
-		mmo:hasSize mmo:{{size}}<br>
-		mmo:hasAlignment mmo:{{alignment}}<br>
-		mmo:hasChallengeRating "{{challenge}}"^^xsd:float<br></p>
-		
-	<p class=hangingindent>{{SubtypeText()}}</p>
-	
-	<p>mm:{{Subtype}}Type a mmo:MonsterType ;<br>
-		mmo:subtypeOf mm:{{type}} .</p>
-	
-	mm:Aarakocra a mmo:Monster ;
-	mmo:hasType mm:AarakocraType ;
-	mmo:hasSize mmo:MediumMonsterSize ;
-	mmo:hasAlignment mmo:NeutralGood ;
-	mmo:hasChallengeRating "0.25"^^xsd:float .
+	<div>
+		<p class=hangingindent>mm:{{Name}} a mmo:Monster ;<br>
+			mmo:hasType mm:{{GetType()}}{{LegendaryText()}} ;<br>
+			mmo:hasSize mmo:{{size}} ;<br>
+			mmo:hasAlignment mmo:{{alignment}} ;<br>
+			mmo:hasChallengeRating "{{challenge}}"^^xsd:float .<br></p>
+			
+		<p class=hangingindent ng-bind-html="SubtypeText()"></p>
+	</div>
 	
 </div>
 
 <script>
-var app = angular.module('monsterApp', [])
+var app = angular.module('monsterApp', ['ngSanitize'])
 
-app.controller('monsterController', function($scope) {
+app.controller('monsterController', function($scope, $http) {
 	$scope.LegendaryText = function(){
 		if($scope.Legendary)
-			return ", mm:Legendary ;";
+			return ", mm:Legendary";
 		else
 			return "";
 	}
-	$scope.SubtypeShow = function(){
+	$scope.GetType = function(){
 		if($scope.SubtypeCheck)
-			return "";
+			return $scope.Name+"Type";
 		else
-			return hidden;
+			return $scope.type;
 	}
 	$scope.SubtypeText = function(){
 		if($scope.SubtypeCheck)
 			return "mm:"+$scope.Name+"Type a mmo:MonsterType ;<br>mmo:subtypeOf mm:"+$scope.type+" .";
 		else
 			return "";
+	}
+	$scope.SendData = function(){
+		$scope.save = "Saving...";
+		var monsterData = {
+				name      : $scope.name,
+				type      : $scope.type,
+				size      : $scope.size,
+				alignment : $scope.alignment,
+				challenge : $scope.challenge,
+				legendary : $scope.Legendary,
+				subtype   : $scope.SubtypeCheck
+		};
+		return $http.post("servertest.html", monsterData)
+			.then(function(response){
+				$scope.save="Saved."
+			}
+		);
 	}
 })
 </script>
