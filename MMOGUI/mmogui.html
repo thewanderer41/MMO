@@ -1,0 +1,56 @@
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="monsterApp" ng-init="Legendary=false">
+	<p>Monster Name: <input ng-model="Name"></p>
+	Type: <select ng-model="type">
+			<option value="Aberration">Aberration</option>
+			<option value="Beast">Beast</option>
+			<option value="Celestial">Celestial</option>
+			<option value="Construct">Construct</option>
+			<option value="Dragon">Dragon</option>
+			<option value="Elemental">Elemental</option>
+			<option value="Fey">Fey</option>
+			<option value="Fiend">Fiend</option>
+			<option value="Giant">Giantnt</option>
+			<option value="Humanoid">Humanoid</option>
+			<option value="Monstrosity">Monstrosity</option>
+			<option value="Ooze">Ooze</option>
+			<option value="Plant">Plant</option>
+			<option value="Undead">Undead</option>
+		  </select> <input type="checkbox" ng-model="Legendary">Legendary<br>
+	Size: <select ng-model="size">
+			<option value="Tiny">Tiny</option>
+			<option value="Small">Small</option>
+			<option value="Medium">Medium</option>
+			<option value="Large">Large</option>
+			<option value="Huge">Huge</option>
+			<option value="Gargantuan">Gargantuan</option>
+		  </select><br>
+	Alignment: <select ng-model="alignment">
+				<option value="Unaligned">Unaligned</option>
+				<option value="LawfulGood">Lawful Good</option>
+				<option value="NeutralGood">Neutral Good</option>
+				<option value="ChaoticGood">Chaotic Good</option>
+				<option value="LawfulNeutral">Lawful Neutral</option>
+				<option value="NeutralNeutral">True Neutral</option>
+				<option value="ChaoticNeutral">Chaotic Neutral</option>
+				<option value="LawfulEvil">Lawful Evil</option>
+				<option value="NeutralEvil">Neutral Evil</option>
+				<option value="ChaoticEvil">Chaotic Evil</option>
+			   </select><br>
+	Challenge Rating <input type="number" ng-model="challenge"></p>
+
+	{{Name}}<br>
+	{{type}} {{Legendary}}<br>
+	{{size}}<br>
+	{{alignment}}<br>
+	{{challenge}}<br>
+</div>
+
+<script>
+var app = angular.module('monsterApp', [])
+</script>
+</body>
+</html>
