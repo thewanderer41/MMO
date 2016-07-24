@@ -1,8 +1,11 @@
 <html>
+<head>
+<link rel="stylesheet" type="text/css" href="mmogui.css">
+</head>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <body>
 
-<div ng-app="monsterApp" ng-init="Legendary=false">
+<div ng-app="monsterApp" ng-controller="monsterController">
 	<p>Monster Name: <input ng-model="Name"></p>
 	Type: <select ng-model="type">
 			<option value="Aberration">Aberration</option>
@@ -19,14 +22,17 @@
 			<option value="Ooze">Ooze</option>
 			<option value="Plant">Plant</option>
 			<option value="Undead">Undead</option>
-		  </select> <input type="checkbox" ng-model="Legendary">Legendary<br>
+		  </select> 
+		  <input type="checkbox" ng-model="Legendary" ng-init="Legendary=false">Legendary
+		  <input type="checkbox" ng-model="SubtypeCheck" ng-init="SubtypeCheck=false">Subtype<br>
+		  <span ng-hide="!SubtypeCheck">Subtype: <input type=text ng-model="Subtype"><br></span>
 	Size: <select ng-model="size">
-			<option value="Tiny">Tiny</option>
-			<option value="Small">Small</option>
-			<option value="Medium">Medium</option>
-			<option value="Large">Large</option>
-			<option value="Huge">Huge</option>
-			<option value="Gargantuan">Gargantuan</option>
+			<option value="TinyMonsterSize">Tiny</option>
+			<option value="SmallMonsterSize">Small</option>
+			<option value="MediumMonsterSize">Medium</option>
+			<option value="LargeMonsterSize">Large</option>
+			<option value="HugeMonsterSize">Huge</option>
+			<option value="GargantuanMonsterSize">Gargantuan</option>
 		  </select><br>
 	Alignment: <select ng-model="alignment">
 				<option value="Unaligned">Unaligned</option>
@@ -42,15 +48,50 @@
 			   </select><br>
 	Challenge Rating <input type="number" ng-model="challenge"></p>
 
-	{{Name}}<br>
-	{{type}} {{Legendary}}<br>
-	{{size}}<br>
-	{{alignment}}<br>
-	{{challenge}}<br>
+	<input type="button" value="Save">
+	
+	<p class=hangingindent>mm:{{Name}} a mmo:Monster<br>
+		mmo:hasType mm:{{type}}{{LegendaryText()}}<br>
+		mmo:hasSize mmo:{{size}}<br>
+		mmo:hasAlignment mmo:{{alignment}}<br>
+		mmo:hasChallengeRating "{{challenge}}"^^xsd:float<br></p>
+		
+	<p class=hangingindent>{{SubtypeText()}}</p>
+	
+	<p>mm:{{Subtype}}Type a mmo:MonsterType ;<br>
+		mmo:subtypeOf mm:{{type}} .</p>
+	
+	mm:Aarakocra a mmo:Monster ;
+	mmo:hasType mm:AarakocraType ;
+	mmo:hasSize mmo:MediumMonsterSize ;
+	mmo:hasAlignment mmo:NeutralGood ;
+	mmo:hasChallengeRating "0.25"^^xsd:float .
+	
 </div>
 
 <script>
 var app = angular.module('monsterApp', [])
+
+app.controller('monsterController', function($scope) {
+	$scope.LegendaryText = function(){
+		if($scope.Legendary)
+			return ", mm:Legendary ;";
+		else
+			return "";
+	}
+	$scope.SubtypeShow = function(){
+		if($scope.SubtypeCheck)
+			return "";
+		else
+			return hidden;
+	}
+	$scope.SubtypeText = function(){
+		if($scope.SubtypeCheck)
+			return "mm:"+$scope.Name+"Type a mmo:MonsterType ;<br>mmo:subtypeOf mm:"+$scope.type+" .";
+		else
+			return "";
+	}
+})
 </script>
 </body>
 </html>
